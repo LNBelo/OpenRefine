@@ -1,0 +1,52 @@
+[
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "Column 1",
+    "expression": "jython:# script to get the path of files from the path of a folder\n\nimport os\n\nfiles = os.listdir(value)\nroot = \"|\" + value + \"\\\\\"\nreturn value + \"\\\\\" + root.join(files)",
+    "onError": "set-to-blank",
+    "newColumnName": "path",
+    "columnInsertIndex": 1,
+    "description": "Create column path at index 1 based on column Column 1 using expression jython:# script to get the path of files from the path of a folder\n\nimport os\n\nfiles = os.listdir(value)\nroot = \"|\" + value + \"\\\\\"\nreturn value + \"\\\\\" + root.join(files)"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "path",
+    "keyColumnName": "Column 1",
+    "mode": "separator",
+    "separator": "|",
+    "regex": false,
+    "description": "Split multi-valued cells in column path"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "path",
+    "expression": "jython:# from the path of a file returns\n# file_name | extension | name_and_extension | file_size\n\nimport os\n\nname_and_extension = os.path.split(value)[1]\nfile_name, extension = os.path.splitext(name_and_extension)\nfile_size = str(os.path.getsize(value) / (1024 * 1024)) + \"MB\"\nlst = [file_name,extension,name_and_extension, file_size]\n\nreturn \"|\".join(lst)",
+    "onError": "set-to-blank",
+    "newColumnName": "file_information",
+    "columnInsertIndex": 2,
+    "description": "Create column file_information at index 2 based on column path using expression jython:# from the path of a file returns\n# file_name | extension | name_and_extension | file_size\n\nimport os\n\nname_and_extension = os.path.split(value)[1]\nfile_name, extension = os.path.splitext(name_and_extension)\nfile_size = str(os.path.getsize(value) / (1024 * 1024)) + \"MB\"\nlst = [file_name,extension,name_and_extension, file_size]\n\nreturn \"|\".join(lst)"
+  },
+  {
+    "op": "core/column-split",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "file_information",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": "|",
+    "regex": false,
+    "maxColumns": 0,
+    "description": "Split column file_information by separator"
+  }
+]
