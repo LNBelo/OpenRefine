@@ -1,0 +1,85 @@
+[
+  {
+    "op": "core/recon",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "File name",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://commonsreconcile.toolforge.org/en/api",
+      "identifierSpace": "https://commons.wikimedia.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "type": {
+        "id": "",
+        "name": ""
+      },
+      "autoMatch": true,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "description": "Reconcile cells in column File name to type "
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "File name",
+    "expression": "cell.recon.match.id",
+    "onError": "set-to-blank",
+    "newColumnName": "MID",
+    "columnInsertIndex": 1,
+    "description": "Create column MID at index 1 based on column File name using expression cell.recon.match.id"
+  },
+  {
+    "op": "core/column-addition-by-fetching-urls",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "MID",
+    "urlExpression": "grel:\"https://commons.wikimedia.org/wiki/Special:EntityData/\" + value + \".json\"",
+    "onError": "set-to-blank",
+    "newColumnName": "json",
+    "columnInsertIndex": 2,
+    "delay": 500,
+    "cacheResponses": true,
+    "httpHeadersJson": [
+      {
+        "name": "authorization",
+        "value": ""
+      },
+      {
+        "name": "user-agent",
+        "value": "OpenRefine 3.7.7 [7b36017]"
+      },
+      {
+        "name": "accept",
+        "value": "*/*"
+      }
+    ],
+    "description": "Create column json at index 2 by fetching URLs based on column MID using expression grel:\"https://commons.wikimedia.org/wiki/Special:EntityData/\" + value + \".json\""
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "json",
+    "expression": "grel:value.parseJson()['entities'][cells['MID'].value]['statements']['P7482'][0]['qualifiers']['P973'][0]['datavalue']['value']",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column json using expression grel:value.parseJson()['entities'][cells['MID'].value]['statements']['P7482'][0]['qualifiers']['P973'][0]['datavalue']['value']"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "json",
+    "newColumnName": "described at URL",
+    "description": "Rename column json to described at URL"
+  }
+]
