@@ -1,0 +1,421 @@
+[
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "path",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column path using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "name",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column name using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "description",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column description using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "source",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column source using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "author",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column author using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "date",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column date using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "license",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column license using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "path",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column path using expression value.replace(/\\s+/,' ')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "name",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column name using expression value.replace(/\\s+/,' ')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "description",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column description using expression value.replace(/\\s+/,' ')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "source",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column source using expression value.replace(/\\s+/,' ')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "author",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column author using expression value.replace(/\\s+/,' ')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "license",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column license using expression value.replace(/\\s+/,' ')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "date",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column date using expression value.replace(/\\s+/,' ')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "path",
+    "expression": "jython:import os\n\nfiles = os.listdir(value)\nroot = \"|\" + value + \"\\\\\"\nreturn value + \"\\\\\" + root.join(files)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column path using expression jython:import os\n\nfiles = os.listdir(value)\nroot = \"|\" + value + \"\\\\\"\nreturn value + \"\\\\\" + root.join(files)"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "path",
+    "keyColumnName": "path",
+    "mode": "separator",
+    "separator": "|",
+    "regex": false,
+    "description": "Split multi-valued cells in column path"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "path",
+    "expression": "jython:import os\n\nname_and_extension = os.path.split(value)[1]\nfile_name, extension = os.path.splitext(name_and_extension)\nlst = [file_name, extension]\nreturn \"|\".join(lst)",
+    "onError": "set-to-blank",
+    "newColumnName": "payload",
+    "columnInsertIndex": 1,
+    "description": "Create column payload at index 1 based on column path using expression jython:import os\n\nname_and_extension = os.path.split(value)[1]\nfile_name, extension = os.path.splitext(name_and_extension)\nlst = [file_name, extension]\nreturn \"|\".join(lst)"
+  },
+  {
+    "op": "core/fill-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "name",
+    "description": "Fill down cells in column name"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "name",
+    "expression": "jython:return '[[Category: ' + value + ']]'",
+    "onError": "set-to-blank",
+    "newColumnName": "category",
+    "columnInsertIndex": 3,
+    "description": "Create column category at index 3 based on column name using expression jython:return '[[Category: ' + value + ']]'"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "name",
+    "expression": "jython:payload = cells.payload.value.split('|')\n\nname = value + ', (' + payload[0] + ')' + payload[1]\nreturn name",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column name using expression jython:payload = cells.payload.value.split('|')\n\nname = value + ', (' + payload[0] + ')' + payload[1]\nreturn name"
+  },
+  {
+    "op": "core/fill-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "description",
+    "description": "Fill down cells in column description"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "description",
+    "expression": "jython:value = '{{pt|1=' + value + '}}'\nreturn value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column description using expression jython:value = '{{pt|1=' + value + '}}'\nreturn value"
+  },
+  {
+    "op": "core/fill-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "source",
+    "description": "Fill down cells in column source"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "source",
+    "expression": "jython:return '[' + value + ' Arquivo Nacional Torre do Tombo]'",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column source using expression jython:return '[' + value + ' Arquivo Nacional Torre do Tombo]'"
+  },
+  {
+    "op": "core/fill-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "license",
+    "description": "Fill down cells in column license"
+  },
+  {
+    "op": "core/fill-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "date",
+    "description": "Fill down cells in column date"
+  },
+  {
+    "op": "core/fill-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "author",
+    "description": "Fill down cells in column author"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "author",
+    "expression": "grel:\"=={{int:filedesc}}==\n{{Information\n |description = \" + cells.description.value.toString() + \"\n |date = \" + cells.date.value.toString() + \"\n |source = \" + cells.source.value.toString() + \"\n |author = \" + cells.author.value.toString() + \"\n |other fields = {{Information field|Name=Accession number|Value=\" + cells.payload.value.split('|')[0] + \"}}\" + \"\n}}\n\n=={{int:license-header}}==\n\" + cells.license.value.toString() + \"\n\n[[Category:Wiki Brasil GLAM initiative with Museu da Capitania]]\" + cells.category.value.toString()",
+    "onError": "set-to-blank",
+    "newColumnName": "wikitext",
+    "columnInsertIndex": 9,
+    "description": "Create column wikitext at index 9 based on column author using expression grel:\"=={{int:filedesc}}==\n{{Information\n |description = \" + cells.description.value.toString() + \"\n |date = \" + cells.date.value.toString() + \"\n |source = \" + cells.source.value.toString() + \"\n |author = \" + cells.author.value.toString() + \"\n |other fields = {{Information field|Name=Accession number|Value=\" + cells.payload.value.split('|')[0] + \"}}\" + \"\n}}\n\n=={{int:license-header}}==\n\" + cells.license.value.toString() + \"\n\n[[Category:Wiki Brasil GLAM initiative with Museu da Capitania]]\" + cells.category.value.toString()"
+  },
+  {
+    "op": "core/recon",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "name",
+    "config": {
+      "mode": "standard-service",
+      "service": "https://commonsreconcile.toolforge.org/en/api",
+      "identifierSpace": "https://commons.wikimedia.org/entity/",
+      "schemaSpace": "http://www.wikidata.org/prop/direct/",
+      "type": {
+        "id": "",
+        "name": ""
+      },
+      "autoMatch": true,
+      "columnDetails": [],
+      "limit": 0
+    },
+    "description": "Reconcile cells in column name to type "
+  },
+  {
+    "op": "core/recon-mark-new-topics",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "name",
+    "shareNewTopics": false,
+    "description": "Mark to create new items for cells in column name, one item for each cell"
+  },
+  {
+    "op": "wikidata/save-wikibase-schema",
+    "schema": {
+      "entityEdits": [],
+      "siteIri": "https://commons.wikimedia.org/entity/",
+      "entityTypeSiteIRI": {
+        "item": "http://www.wikidata.org/entity/",
+        "property": "http://www.wikidata.org/entity/",
+        "mediainfo": "https://commons.wikimedia.org/entity/"
+      },
+      "mediaWikiApiEndpoint": "https://commons.wikimedia.org/w/api.php"
+    },
+    "description": "Save Wikibase schema"
+  },
+  {
+    "op": "wikidata/save-wikibase-schema",
+    "schema": {
+      "entityEdits": [
+        {
+          "type": "wbmediainfoeditexpr",
+          "subject": {
+            "type": "wbentityvariable",
+            "columnName": "name"
+          },
+          "nameDescs": [],
+          "statementGroups": [],
+          "filePath": {
+            "type": "wbstringvariable",
+            "columnName": "path"
+          },
+          "fileName": {
+            "type": "wbstringvariable",
+            "columnName": "name"
+          },
+          "wikitext": {
+            "type": "wbstringvariable",
+            "columnName": "wikitext"
+          },
+          "overrideWikitext": false
+        }
+      ],
+      "siteIri": "https://commons.wikimedia.org/entity/",
+      "entityTypeSiteIRI": {
+        "item": "http://www.wikidata.org/entity/",
+        "property": "http://www.wikidata.org/entity/",
+        "mediainfo": "https://commons.wikimedia.org/entity/"
+      },
+      "mediaWikiApiEndpoint": "https://commons.wikimedia.org/w/api.php"
+    },
+    "description": "Save Wikibase schema"
+  }
+]
