@@ -271,7 +271,7 @@
     "onError": "keep-original",
     "repeat": false,
     "repeatCount": 10,
-    "description": "Text transform on cells in column description using expression jython:value = '{{pt|1=' + value + '}}'\nreturn value"
+    "description": "Text transform on cells in column description using expression jython:value = '{{pt|1=' + value + '<br>Documento do acervo do [[w:pt:Arquivo Nacional da Torre do Tombo|Arquivo Nacional da Torre do Tombo]].}}'\nreturn value"
   },
   {
     "op": "core/fill-down",
@@ -336,6 +336,20 @@
     "description": "Create column wikitext at index 9 based on column author using expression grel:\"=={{int:filedesc}}==\n{{Information\n |description = \" + cells.description.value.toString() + \"\n |date = \" + cells.date.value.toString() + \"\n |source = \" + cells.source.value.toString() + \"\n |author = \" + cells.author.value.toString() + \"\n |other fields = {{Information field|Name=Accession number|Value=\" + cells.payload.value.split('|')[0] + \"}}\" + \"\n}}\n\n=={{int:license-header}}==\n\" + cells.license.value.toString() + \"\n\n[[Category:Wiki Brasil GLAM initiative with Museu da Capitania]]\" + cells.category.value.toString()"
   },
   {
+    "op": "wikidata/save-wikibase-schema",
+    "schema": {
+      "entityEdits": [],
+      "siteIri": "https://commons.wikimedia.org/entity/",
+      "entityTypeSiteIRI": {
+        "item": "http://www.wikidata.org/entity/",
+        "property": "http://www.wikidata.org/entity/",
+        "mediainfo": "https://commons.wikimedia.org/entity/"
+      },
+      "mediaWikiApiEndpoint": "https://commons.wikimedia.org/w/api.php"
+    },
+    "description": "Save Wikibase schema"
+  },
+  {
     "op": "core/recon",
     "engineConfig": {
       "facets": [],
@@ -366,20 +380,6 @@
     "columnName": "name",
     "shareNewTopics": false,
     "description": "Mark to create new items for cells in column name, one item for each cell"
-  },
-  {
-    "op": "wikidata/save-wikibase-schema",
-    "schema": {
-      "entityEdits": [],
-      "siteIri": "https://commons.wikimedia.org/entity/",
-      "entityTypeSiteIRI": {
-        "item": "http://www.wikidata.org/entity/",
-        "property": "http://www.wikidata.org/entity/",
-        "mediainfo": "https://commons.wikimedia.org/entity/"
-      },
-      "mediaWikiApiEndpoint": "https://commons.wikimedia.org/w/api.php"
-    },
-    "description": "Save Wikibase schema"
   },
   {
     "op": "wikidata/save-wikibase-schema",
