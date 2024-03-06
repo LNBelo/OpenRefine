@@ -267,7 +267,7 @@
       "mode": "row-based"
     },
     "columnName": "description",
-    "expression": "jython:value = '{{pt|1=' + value + '}}'\nreturn value",
+    "expression": "jython:value = '{{pt|1=' + value + '<br>Documento do acervo do [[w:pt:Arquivo Nacional da Torre do Tombo|Arquivo Nacional da Torre do Tombo]].}}'\nreturn value",
     "onError": "keep-original",
     "repeat": false,
     "repeatCount": 10,
