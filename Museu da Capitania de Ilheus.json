@@ -323,17 +323,26 @@
     "description": "Fill down cells in column author"
   },
   {
+    "op": "core/fill-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "photographer",
+    "description": "Fill down cells in column photographer"
+  },
+  {
     "op": "core/column-addition",
     "engineConfig": {
       "facets": [],
       "mode": "row-based"
     },
     "baseColumnName": "author",
-    "expression": "grel:\"=={{int:filedesc}}==\n{{Information\n |description = \" + cells.description.value.toString() + \"\n |date = \" + cells.date.value.toString() + \"\n |source = \" + cells.source.value.toString() + \"\n |author = \" + cells.author.value.toString() + \"\n |other fields = {{Information field|Name=Accession number|Value=\" + cells.payload.value.split('|')[0] + \"}}\" + \"\n}}\n\n=={{int:license-header}}==\n\" + cells.license.value.toString() + \"\n\n[[Category:Wiki Brasil GLAM initiative with Museu da Capitania]]\" + cells.category.value.toString()",
+    "expression": "grel:\"=={{int:filedesc}}==\n{{Information\n |description = \" + cells.description.value.toString() + \"\n |date = \" + cells.date.value.toString() + \"\n |source = \" + cells.source.value.toString() + \"\n |author = \" + cells.author.value.toString() + \"\n |other fields = {{Information field|Name=Accession number|Value=\" + cells.payload.value.split('|')[0] + \"}}\" + \nif(isBlank(cells.photographer.value), \"\", \"\n |other fields 1 = {{Information field|Name=Photographer|Value=\" + cells.photographer.value.toString() + \"}}\") + \"\n}}\n\n=={{int:license-header}}==\n\" + cells.license.value.toString() + \"\n\n[[Category:Wiki Brasil GLAM initiative with Museu da Capitania]]\\n\" + cells.category.value.toString()",
     "onError": "set-to-blank",
     "newColumnName": "wikitext",
-    "columnInsertIndex": 9,
-    "description": "Create column wikitext at index 9 based on column author using expression grel:\"=={{int:filedesc}}==\n{{Information\n |description = \" + cells.description.value.toString() + \"\n |date = \" + cells.date.value.toString() + \"\n |source = \" + cells.source.value.toString() + \"\n |author = \" + cells.author.value.toString() + \"\n |other fields = {{Information field|Name=Accession number|Value=\" + cells.payload.value.split('|')[0] + \"}}\" + \"\n}}\n\n=={{int:license-header}}==\n\" + cells.license.value.toString() + \"\n\n[[Category:Wiki Brasil GLAM initiative with Museu da Capitania]]\" + cells.category.value.toString()"
+    "columnInsertIndex": 10,
+    "description": "Create column wikitext at index 10 based on column author using expression grel:\"=={{int:filedesc}}==\n{{Information\n |description = \" + cells.description.value.toString() + \"\n |date = \" + cells.date.value.toString() + \"\n |source = \" + cells.source.value.toString() + \"\n |author = \" + cells.author.value.toString() + \"\n |other fields = {{Information field|Name=Accession number|Value=\" + cells.payload.value.split('|')[0] + \"}}\" + \nif(isBlank(cells.photographer.value), \"\", \"\n |other fields 1 = {{Information field|Name=Photographer|Value=\" + cells.photographer.value.toString() + \"}}\") + \"\n}}\n\n=={{int:license-header}}==\n\" + cells.license.value.toString() + \"\n\n[[Category:Wiki Brasil GLAM initiative with Museu da Capitania]]\\n\" + cells.category.value.toString()"
   },
   {
     "op": "wikidata/save-wikibase-schema",
