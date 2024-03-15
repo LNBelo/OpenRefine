@@ -245,11 +245,11 @@
       "mode": "row-based"
     },
     "columnName": "name",
-    "expression": "jython:payload = cells.payload.value.split('|')\n\nname = value + ', (' + payload[0] + ')' + payload[1]\nreturn name",
+    "expression": "jython:payload = cells.payload.value.split('|')\n\nname = value + ' (' + payload[0] + ')' + payload[1]\nreturn name",
     "onError": "keep-original",
     "repeat": false,
     "repeatCount": 10,
-    "description": "Text transform on cells in column name using expression jython:payload = cells.payload.value.split('|')\n\nname = value + ', (' + payload[0] + ')' + payload[1]\nreturn name"
+    "description": "Text transform on cells in column name using expression jython:payload = cells.payload.value.split('|')\n\nname = value + ' (' + payload[0] + ')' + payload[1]\nreturn name"
   },
   {
     "op": "core/fill-down",
